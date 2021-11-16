@@ -44,7 +44,7 @@
         <input type="range" v-model="message">
       </div>
       <br>
-      <button type="submit">CALCULATE <svg role="img"
+      <button @click="handleClick" type="submit">CALCULATE <svg role="img"
           style="fill: rgb(255, 255, 255); transition: fill .35s; width: 12px; height: 12px;"
           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 22">
           <title>Submit</title>
@@ -52,6 +52,221 @@
           <path d="M17.9 9.3l-6.5-6.8L13.9 0l11.2 11.2L14 22.4l-2.6-2.5 6.5-6.7H0v-4z"></path>
         </svg></button>
     </div>
+
+    <!-- Conversion Table Start -->
+
+    <div>
+      <form data-vv-scope="form-scope-new-business" enctype="multipart/form-data" autocomplete="off"
+        novalidate="novalidate" class="form-base is-theme-beta">
+        <div class="form-base__loader">
+          <div class="form-loader form-loader--theme-beta">
+            <div class="form-loader__icon"></div>
+          </div>
+        </div>
+        <div class="form-base__content">
+
+          <div class="form-base__elements">
+            <fieldset class="form-fieldset">
+
+              <div class="form-fieldset__content">
+                <div class="form-input form-input--size-default is-theme-beta">
+                  <label for="id-numberofvisitors" class="form-input__label">
+                    What is your average number of
+                    visitors?
+                    <span class="form-input__required">*</span>
+                    <span class="form-input__required label--desc">(per
+                      month or per year)</span>
+                  </label>
+                  <input id="id-numberofvisitors" name="numberofvisitors" type="text" value="0" autocomplete="off"
+                    v-model="" class="form-input__input form-input__input--none pristine untouched" aria-required="true"
+                    aria-invalid="false">
+                  <div class="form-input__msg form-input__msg--">
+                    <div class="form-message form-message--theme-delta">
+                      <p class="form-message__text">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="form-fieldset">
+
+              <div class="form-fieldset__content">
+                <div class="form-input form-input--size-default is-theme-beta">
+                  <label for="id-avgwebsite" class="form-input__label">
+                    What is your average website
+                    conversion rate?
+                    <span class="form-input__required">*</span>
+                  </label>
+                  <input id="id-avgwebsite" name="avgwebsite" type="text" value="0" autocomplete="off" v-model=""
+                    class="form-input__input form-input__input--none pristine untouched" aria-required="true"
+                    aria-invalid="false">
+                  <span class="form-input__required label--unit">%</span>
+                  <div class="form-input__msg form-input__msg--">
+                    <div class="form-message form-message--theme-delta">
+                      <p class="form-message__text">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="form-fieldset">
+
+              <div class="form-fieldset__content">
+                <div class="form-input form-input--size-default is-theme-beta">
+                  <label for="id-avgtransaction" class="form-input__label">
+                    What is your average transaction
+                    value?
+                    <span class="form-input__required">*</span>
+                    <span class="form-input__required label--desc">(average
+                      checkout, basket, or sales
+                      value)</span>
+                  </label>
+                  <span class="form-input__required label--unit pos-aln--left">£</span>
+                  <input id="id-avgtransaction" name="avgtransaction" type="text" value="0" autocomplete="off"
+                    v-model="" class="form-input__input form-input__input--none pristine untouched pad-lft--15"
+                    aria-required="true" aria-invalid="false">
+                  <div class="form-input__msg form-input__msg--">
+                    <div class="form-message form-message--theme-delta">
+                      <p class="form-message__text">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset class="form-fieldset">
+              <div class="form-fieldset__content">
+                <div class="form-input form-input--size-default is-theme-beta">
+                  <label for="id-convrate" class="form-input__label">
+                    What increase in conversion rate
+                    do you want?
+                    <span class="form-input__required">*</span>
+                  </label>
+                  <input id="id-convrate" name="convrate" type="range" min="0" max="250" value="0" v-model=""
+                    class="customslider" aria-required="true" aria-invalid="false">
+                  <span id="id-convratevalue" class="form-input__required label--desc">0
+                    %</span>
+                  <div class="form-input__msg form-input__msg--">
+                    <div class="form-message form-message--theme-delta">
+                      <p class="form-message__text">
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-base__button">
+              <div>
+                <button type="button" onclick="webConversionResults()"
+                  class="button-action button-action--theme-beta button-action--size-default button-action--states-default button-action--disabled-false button-action--icon-nudge">
+                  <span class="button-action__title">Calculate</span>
+                  <span class="button-action__right">
+                    <span aria-label="Submit" class="icon">
+                      <svg role="img"
+                        style="fill: rgb(255, 255, 255); transition: fill .35s; width: 12px; height: 12px;"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 22">
+                        <title>Submit</title>
+                        <desc>Submit form to
+                          Foolproof</desc>
+                        <path d="M17.9 9.3l-6.5-6.8L13.9 0l11.2 11.2L14 22.4l-2.6-2.5 6.5-6.7H0v-4z">
+                        </path>
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <div id="web_conversion_results">
+      <div class="form-base__content">
+        <div class="html-block html-block--theme-beta is-theme-beta">
+          <div>
+            <p>Incremental profit and revenue gains from new
+              conversion rate:</p>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table id="web_conversion_table" class="table table-bordered">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Old Website</th>
+              <th>Optimized Website</th>
+              <th
+                style="background-color: rgb(236, 255, 236); border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0); border-top-width: 1px; border-top-style: solid; border-top-color: rgb(0, 153, 0);">
+                Incremental Benefit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="output-row" style="background-color: rgb(249, 249, 251);">
+              <td>Your visitors</td>
+              <td>0</td>
+              <td>0</td>
+              <td
+                style="background-color: rgb(230, 249, 232); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0);">
+              </td>
+            </tr>
+            <tr class="output-row">
+              <td>Website Conversions</td>
+              <td>0%</td>
+              <td>0%</td>
+              <td
+                style="background-color: rgb(236, 255, 236); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0);">
+                0%</td>
+            </tr>
+            <tr class="output-row" style="background-color: rgb(249, 249, 251);">
+              <td>Number of sales</td>
+              <td>0</td>
+              <td>0</td>
+              <td
+                style="background-color: rgb(230, 249, 232); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0);">
+                0</td>
+            </tr>
+            <tr class="output-row">
+              <td>Revenue</td>
+              <td>£ 0</td>
+              <td>£ 0</td>
+              <td
+                style="background-color: rgb(236, 255, 236); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0);">
+                £ 0</td>
+            </tr>
+            <tr class="output-row" style="background-color: rgb(249, 249, 251);">
+              <td>Revenue per visitor</td>
+              <td>£ 0</td>
+              <td>£ 0</td>
+              <td
+                style="background-color: rgb(230, 249, 232); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0);">
+                £ 0</td>
+            </tr>
+            <tr class="output-row">
+              <td>Visitors per transaction</td>
+              <td>0</td>
+              <td>0</td>
+              <td id="bottom_rounder_corner"
+                style="background-color: rgb(236, 255, 236); color: rgb(0, 153, 0); font-weight: bold; border-left-width: 1px; border-left-style: solid; border-left-color: rgb(0, 153, 0); border-right-width: 1px; border-right-style: solid; border-right-color: rgb(0, 153, 0); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(0, 153, 0);">
+                0</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="clear-both">
+        <div id="result-details">
+          <span id="score_title"></span> <br>
+          <span id="score_desc"></span>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Conversion Table End -->
 
     <div class="footer">
       <a href="/Home"><span>Home</span></a>
@@ -89,7 +304,7 @@
             </g>
           </svg></a>
       </div>
-      
+
       <div class="icons">
         <!-- Twitter -->
         <a href="/Twitter"><svg role="img"
@@ -217,16 +432,187 @@
         wcrc: 'Website Conversion <br> Rate Calculator',
         wcrcMsg: 'Find out what a small increse in conversion is worth.',
         midHead: "Ensure you're getting the <br> most from your visitors.",
-        midMsg: 'Enter your website statistics in to the fields below to discover how a small increase <br> in your website conversion rate can lead to a significant increase in revenue and <br> sales without increasing the number of visitors to your site .' ,
+        midMsg: 'Enter your website statistics in to the fields below to discover how a small increase <br> in your website conversion rate can lead to a significant increase in revenue and <br> sales without increasing the number of visitors to your site .',
         visitors: 'WHAT IS YOUR AVAERAGE NUMBER <br>OF VISITORS? * <span>(PER MONTH OR PER <br> YEAR)</span>',
         conversion: '<span>WHAT IS YOUR AVERAGE WEBSITE <br>CONVERSION RATE ? * </span>',
         transaction: 'WHAT IS YOUR AVAERAGE NUMBER <br>TRANSACTION VALUE ? * <span>(AVERAGE <br> CHECKOUT, BASKET, OR SALES <br> VALUE)</span>',
         rateConversion: 'WHAT INCREASE IN CONVERSION <br> RATE DO YOU WANT? *',
+
       }
     },
     props: {
-      msg: String
+      msg: String,
+    },
+    methods: {
+      /* handleClick: function() {
+      alert('test')
+     } */
+
+      slider: document.getElementById('id-convrate'),
+      output: document.getElementById("id-convratevalue"),
+
+
+      /* output.innerHTML = slider.value + "%"; */
+
+      querySelector: function querySelector(elementClassId) {
+        return document.querySelector(elementClassId);
+      },
+
+      roundHundredth: function roundHundredth(a) {
+        return Math.round(100 * a) / 100
+      },
+
+      displayErrorModal: function displayErrorModal(d, c, b) {},
+
+      webConversion: function webConversionResults() {
+        var r = parseFloat(querySelector("#id-numberofvisitors").value);
+        var b = parseFloat(querySelector("#id-avgwebsite").value) / 100;
+        var c = parseFloat(querySelector("#id-avgtransaction").value);
+        var v = querySelector("#id-convrate").value / 100;
+        var e = false;
+        // if (isNaN(r)) {
+        //    $("#ui_avg_visitors").addClass("error-input");
+        //    e = true
+        // } else {
+        //    $("#ui_avg_visitors").removeClass("error-input")
+        // }
+        // if (isNaN(b)) {
+        //    $("#ui_avg_conversion").addClass("error-input");
+        //    e = true
+        // } else {
+        //    $("#ui_avg_conversion").removeClass("error-input")
+        // }
+        // if (isNaN(c)) {
+        //    $("#ui_avg_transaction").addClass("error-input");
+        //    e = true
+        // } else {
+        //    $("#ui_avg_transaction").removeClass("error-input")
+        // }
+        if (e) {
+          return false
+        }
+        var q = "";
+        var A = "";
+        var n = 0;
+        // if (r == 0 || r % 1 != 0) {
+        //    q = "Invalid input for the first question";
+        //    A = 'Only whole numbers apart from 0 are allowed for the first question: "What is your average number of visitors?"';
+        //    n++
+        // }
+        // if (b <= 0 || b > 1) {
+        //    q = "Invalid input for the second question";
+        //    A = 'Values equal to 0 or over 100% are not allowed for the second question: "What is your average website conversion rate?"';
+        //    n++
+        // }
+        // if (c == 0) {
+        //    q = "Invalid input for the third question";
+        //    A = 'The value 0 is not allowed for the third question: "What is your average transaction value?"';
+        //    n++
+        // }
+        // if (n >= 2) {
+        //    q = "Invalid inputs";
+        //    A = "Only whole numbers apart from 0 are allowed for the first question.<br /><br />Values equal to 0 or over 100% are not allowed for the second question.<br /><br />The value 0 is not allowed for the third question.<br /><br />Fourth question: the conversion rate increase can't result in a conversion rate over 100%.";
+        //    displayErrorModal(q, A);
+        //    return false
+        // } else {
+        //    if (n == 1) {
+        //          displayErrorModal(q, A);
+        //          return false
+        //    }
+        // }
+        var o = r;
+        var u = b;
+        var y = o * u;
+        var l = y * c;
+        var w = b * (1 + v);
+        if (w > 1) {
+          q = "Invalid input in your desired conversion rate increase";
+          A =
+            "A website conversion rate can't be superior to 100%, so we replace your input value by 100%. Please also consider that a 100% conversion rate is unlikely to happen.";
+          displayErrorModal(q, A, true);
+          w = 1;
+          var k = 1;
+          for (var x = 1, j = 0; x <= 250; x++) {
+            if (j > 100) {
+              k = x - 1;
+              break
+            }
+            j = b * (1 + x)
+          }
+          k -= 100;
+          $("#web_conversion_slider").slider("destroy");
+          $("#web_conversion_slider").slider({
+            create: function (i, C) {},
+            value: k,
+            min: 0,
+            max: 250,
+            slide: function (i, C) {
+              $("#web_conversion_amt").text(C.value)
+            },
+            stop: function (i, C) {
+              if ($("#web_conversion_results").css("visibility") != "hidden") {
+                webConversionResults()
+              }
+            }
+          });
+          // $("#web_conversion_amt").text(k)
+        }
+        var d = o * w;
+        var a = d * c;
+        var s = w - u;
+        var h = d - y;
+        var g = a - l;
+        var z = l / o;
+        var m = o / y;
+        var p = a / o;
+        var f = o / d;
+        var t = (p - z) / z;
+        var B = (f - m) / m;
+        var getAllElements = document.querySelectorAll(".output-row");
+        for (var i = 0; i < getAllElements.length; i++) {
+          var getAllChild = getAllElements[i].children;
+          if (i == 0) {
+            getAllChild[1].innerHTML = o;
+            getAllChild[2].innerHTML = o;
+          } else if (i == 1) {
+            getAllChild[1].innerHTML = roundHundredth(u * 100) + "%";
+            getAllChild[2].innerHTML = roundHundredth(w * 100) + "%";
+            getAllChild[3].innerHTML = "+" + roundHundredth(s * 100) + "%";
+          } else if (i == 2) {
+            getAllChild[1].innerHTML = Math.round(y);
+            getAllChild[2].innerHTML = Math.round(d);
+            getAllChild[3].innerHTML = Math.round(h);
+          } else if (i == 3) {
+            getAllChild[1].innerHTML = "&pound; " + l;
+            getAllChild[2].innerHTML = "&pound; " + roundHundredth(a);
+            getAllChild[3].innerHTML = "&pound; " + roundHundredth(g);
+          } else if (i == 4) {
+            getAllChild[1].innerHTML = isNaN(roundHundredth(z)) ? "&pound; 0" : "&pound; " + roundHundredth(z);
+            getAllChild[2].innerHTML = isNaN(roundHundredth(p)) ? "&pound; 0" : "&pound; " + roundHundredth(p);
+            getAllChild[3].innerHTML = isNaN(roundHundredth(t * 100)) ? "+0%" : "+" + roundHundredth(t * 100) +
+              "%";
+          } else if (i == 5) {
+            getAllChild[1].innerHTML = isNaN(roundHundredth(m)) ? 0 : roundHundredth(m);
+            getAllChild[2].innerHTML = isNaN(roundHundredth(f)) ? 0 : roundHundredth(f);
+            getAllChild[3].innerHTML = isNaN(roundHundredth(B * 100)) ? "0%" : roundHundredth(B * 100) + "%";
+          }
+        }
+        querySelector("#web_conversion_results").style.display = "block";
+        // if (w < 1) {
+        //    $("html, body").animate({
+        //          scrollTop: 500
+        //    }, "slow", function () {})
+        // }
+        return false
+      },
+
+
+
+      
+
+
     }
+
   }
 </script>
 
@@ -383,4 +769,208 @@
   .others2 {
     padding-top: 50px;
   }
+
+  /*  Website Conversion CSS  */
+
+  .label--desc {
+    color: rgba(0, 0, 0, .3) !important;
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .label--unit {
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    padding: 0;
+    font-family: Poppins, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .pos-aln--left {
+    right: auto;
+    left: 0;
+  }
+
+  .pad-lft--15 {
+    padding-left: 15px;
+  }
+
+  .customslider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .customslider:hover {
+    opacity: 1;
+  }
+
+  .customslider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+  .customslider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+  #web_conversion_results {
+    margin-top: 25px;
+    display: none;
+    position: relative;
+  }
+
+  .table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+  }
+
+  #web_conversion_results table#web_conversion_table {
+    margin: 15px 0;
+    padding: 0;
+  }
+
+  #web_conversion_results table {
+    border-collapse: separate;
+  }
+
+  .table-bordered {
+    border: 1px solid #ddd;
+  }
+
+  .table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  table {
+    background-color: transparent;
+  }
+
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+  }
+
+  tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+  }
+
+  #web_conversion_results table#web_conversion_table tr {
+    padding: 0;
+    margin: 0;
+  }
+
+  .table>caption+thead>tr:first-child>td,
+  .table>caption+thead>tr:first-child>th,
+  .table>colgroup+thead>tr:first-child>td,
+  .table>colgroup+thead>tr:first-child>th,
+  .table>thead:first-child>tr:first-child>td,
+  .table>thead:first-child>tr:first-child>th {
+    border-top: 0;
+  }
+
+  .table-bordered>thead>tr>td,
+  .table-bordered>thead>tr>th {
+    border-bottom-width: 2px;
+  }
+
+  .table-bordered>tbody>tr>td,
+  .table-bordered>tbody>tr>th,
+  .table-bordered>tfoot>tr>td,
+  .table-bordered>tfoot>tr>th,
+  .table-bordered>thead>tr>td,
+  .table-bordered>thead>tr>th {
+    border: 1px solid #ddd;
+  }
+
+  .table>thead>tr>th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .table>tbody>tr>td,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>td,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
+  .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+  }
+
+  #web_conversion_results table#web_conversion_table tr th {
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+  }
+
+  #web_conversion_table tr:nth-child(odd) {
+    background-color: #F9F9FB;
+  }
+
+  #web_conversion_table tr th:nth-child(4) {
+    background-color: #ECFFEC;
+    border-left: 1px solid #009900;
+    border-right: 1px solid #009900;
+    border-top: 1px solid #009900;
+  }
+
+  #web_conversion_table tr td:nth-child(4) {
+    color: #009900;
+    font-weight: bold;
+    background-color: #ECFFEC;
+    border-left: 1px solid #009900;
+    border-right: 1px solid #009900;
+  }
+
+  #web_conversion_table tr td:nth-child(even) {
+    background-color: #E6F9E8;
+  }
+
+  #web_conversion_table tr:nth-child(6) td:nth-child(even) {
+    border-bottom: 1px solid #009900;
+  }
+
+  /*  Website Conversion CSS end */
 </style>
