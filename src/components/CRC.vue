@@ -55,7 +55,7 @@
 
     <!-- Conversion Table Start -->
 
-    <div>
+    <!-- <div>
       <form data-vv-scope="form-scope-new-business" enctype="multipart/form-data" autocomplete="off"
         novalidate="novalidate" class="form-base is-theme-beta">
         <div class="form-base__loader">
@@ -263,8 +263,7 @@
           <span id="score_desc"></span>
         </div>
       </div>
-    </div>
-
+    </div> -->
 
     <!-- Conversion Table End -->
 
@@ -444,15 +443,15 @@
       msg: String,
     },
     methods: {
-      /* handleClick: function() {
+      handleClick: function() {
       alert('test')
-     } */
+     }
 
-      slider: document.getElementById('id-convrate'),
+      /* slider: document.getElementById('id-convrate'),
       output: document.getElementById("id-convratevalue"),
+ 
 
-
-      /* output.innerHTML = slider.value + "%"; */
+      output.innerHTML = slider.value + "%";
 
       querySelector: function querySelector(elementClassId) {
         return document.querySelector(elementClassId);
@@ -604,11 +603,7 @@
         //    }, "slow", function () {})
         // }
         return false
-      },
-
-
-
-      
+      }, */
 
 
     }
